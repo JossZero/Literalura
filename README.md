@@ -1,27 +1,22 @@
-# Catálogo de Libros
+Catálogo de Libros
 
-Este proyecto es una aplicación de catálogo de libros construida con Spring Boot. Permite interactuar con una API de libros y almacenar la información en una base de datos PostgreSQL.
+Este proyecto es una aplicación para gestionar un catálogo de libros usando Spring Boot y PostgreSQL.
 
-## Requisitos
+Requisitos
 
-Antes de comenzar, asegúrate de tener instalados los siguientes programas:
+- Java JDK 17 o superior
+- Maven 4 o superior
+- PostgreSQL 16 o superior
 
-- **Java JDK**: Versión 17 o superior. Puedes descargarlo desde [aquí](https://www.oracle.com/java/technologies/javase-jdk17-downloads.html).
-- **Maven**: Versión 4 o superior. Puedes descargarlo desde [aquí](https://maven.apache.org/download.cgi).
-- **PostgreSQL**: Versión 16 o superior. Puedes descargarlo desde [aquí](https://www.postgresql.org/download/).
+Configuración del Entorno
 
-## Configuración del Entorno
-
-1. **Instalar PostgreSQL**:
-   - Descarga e instala PostgreSQL desde el [sitio web oficial](https://www.postgresql.org/download/).
-   - Crea una base de datos para el proyecto usando el siguiente comando SQL:
-     ```sql
+1. Instalar PostgreSQL:
+   - Descarga e instala PostgreSQL desde [aquí](https://www.postgresql.org/download/).
+   - Crea una base de datos con el siguiente comando SQL:
      CREATE DATABASE catalogo_libros;
-     ```
 
-2. **Configurar el Archivo `application.properties`**:
-   - Abre el archivo `src/main/resources/application.properties` y configura los detalles de conexión a tu base de datos PostgreSQL:
-     ```properties
+2. Configurar Conexión en Spring Boot:
+   - Abre `src/main/resources/application.properties` y agrega la siguiente configuración:
      spring.datasource.url=jdbc:postgresql://localhost:5432/catalogo_libros
      spring.datasource.username=tu_usuario
      spring.datasource.password=tu_contraseña
@@ -30,63 +25,56 @@ Antes de comenzar, asegúrate de tener instalados los siguientes programas:
      spring.jpa.hibernate.ddl-auto=update
      spring.jpa.show-sql=true
      spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
-     ```
 
-## Configuración del Proyecto
+Configuración del Proyecto
 
-1. **Agregar Dependencias**:
-   - Asegúrate de que tu archivo `pom.xml` tenga las siguientes dependencias:
-
-     ```xml
-     <?xml version="1.0" encoding="UTF-8"?>
-     <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-       <modelVersion>4.0.0</modelVersion>
-       <parent>
+1. Dependencias:
+   - Asegúrate de que tu `pom.xml` contenga estas dependencias:
+     <dependencies>
+       <dependency>
          <groupId>org.springframework.boot</groupId>
-         <artifactId>spring-boot-starter-parent</artifactId>
-         <version>3.2.7</version>
-         <relativePath/> <!-- lookup parent from repository -->
-       </parent>
-       <groupId>com.lietaratura</groupId>
-       <artifactId>Catalogo</artifactId>
-       <version>0.0.1-SNAPSHOT</version>
-       <name>Catalogo</name>
-       <description>Demo project for Spring Boot</description>
-       <url/>
-       <licenses>
-         <license/>
-       </licenses>
-       <developers>
-         <developer/>
-       </developers>
-       <scm>
-         <connection/>
-         <developerConnection/>
-         <tag/>
-         <url/>
-       </scm>
-       <properties>
-         <java.version>17</java.version>
-       </properties>
-       <dependencies>
-         <dependency>
-           <groupId>org.springframework.boot</groupId>
-           <artifactId>spring-boot-starter-data-jpa</artifactId>
-         </dependency>
-         <dependency>
-           <groupId>org.springframework.boot</groupId>
-           <artifactId>spring-boot-starter-web</artifactId>
-         </dependency>
-         <dependency>
-           <groupId>org.postgresql</groupId>
-           <artifactId>postgresql</artifactId>
-           <scope>runtime</scope>
-         </dependency>
-         <dependency>
-           <groupId>org.springframework.boot</groupId>
-           <artifactId>spring-boot-starter-test</artifactId>
-           <scope>test</scope>
-         </dependency>
-         <dependency>
+         <artifactId>spring-boot-starter-data-jpa</artifactId>
+       </dependency>
+       <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-web</artifactId>
+       </dependency>
+       <dependency>
+         <groupId>org.postgresql</groupId>
+         <artifactId>postgresql</artifactId>
+         <scope>runtime</scope>
+       </dependency>
+       <dependency>
+         <groupId>com.fasterxml.jackson.core</groupId>
+         <artifactId>jackson-databind</artifactId>
+         <version>2.16.0</version>
+       </dependency>
+       <dependency>
+         <groupId>org.apache.httpcomponents.client5</groupId>
+         <artifactId>httpclient5</artifactId>
+         <version>5.2</version>
+       </dependency>
+     </dependencies>
+
+Ejecución
+
+1. Asegúrate de que PostgreSQL esté en ejecución.
+2. Ejecuta los siguientes comandos para construir y ejecutar la aplicación:
+   mvn clean install
+   mvn spring-boot:run
+
+Funcionalidades
+
+- Buscar un libro por título
+- Listar todos los libros
+- Listar libros por idioma
+- Listar autores
+- Listar autores vivos en un año determinado
+
+Contacto
+
+Para preguntas, contacta a tu_email@dominio.com.
+
+Gracias por usar el proyecto de Catálogo de Libros!
+
           
