@@ -11,13 +11,12 @@ Requisitos
 Configuración del Entorno
 
 1. Instalar PostgreSQL:
-   - Descarga e instala PostgreSQL desde [aquí](https://www.postgresql.org/download/).
+   - Descarga e instala PostgreSQL 
    - Crea una base de datos con el siguiente comando SQL:
      CREATE DATABASE catalogo_libros;
 
 2. Configurar Conexión en Spring Boot:
    - Abre `src/main/resources/application.properties` y agrega la siguiente configuración:
-     spring.datasource.url=jdbc:postgresql://localhost:5432/catalogo_libros
      spring.datasource.username=tu_usuario
      spring.datasource.password=tu_contraseña
      spring.datasource.driver-class-name=org.postgresql.Driver
@@ -71,10 +70,5 @@ Funcionalidades
 - Listar autores
 - Listar autores vivos en un año determinado
 
-Contacto
-
-Para preguntas, contacta a tu_email@dominio.com.
-
-Gracias por usar el proyecto de Catálogo de Libros!
 
           
